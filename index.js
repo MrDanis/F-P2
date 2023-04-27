@@ -26,6 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 //routes for saving the user.....
 // create the user
 // user.watch(); 
+app.get('/', (req, res) => {
+  res.send('Hello World! I am hosted on the vercel')
+})
 app.post('/user/create-user',expressAsyncHandler(async(req,res)=>{
     console.log('Data getting from the frontend : ',req.body);
     const userIs = new user(req?.body?.data);
