@@ -5,16 +5,9 @@ const cors = require('cors');
 const expressAsyncHandler = require('express-async-handler');
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:3000' }));
+// app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-// locall connection start
-// mongoose.connect('mongodb://localhost:27017/Food-App', {
-  //   useNewUrlParser: true,
-  //   useUnifiedTopology: true,
-  // }).then((result)=>{
-  //   console.log('Testing DB and the result is :',result);
-  // }).catch((err)=>{console.log('Testing is faild : ',err)});
-  // locall connection ends
   // connection with atlas
   mongoose.connect('mongodb+srv://danishiiui22:BCy2Hb2oWxvsfLkW@friendlink.mir4ey7.mongodb.net/?retryWrites=true&w=majority', {
       useNewUrlParser: true,
