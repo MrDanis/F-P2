@@ -22,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.send('Hello World! I am hosted on the vercel')
 })
+app.get('/test-user', (req, res) => {
+  res.send('Hello World! I am hosted on the vercel')
+})
 app.post('/user/create-user',expressAsyncHandler(async(req,res)=>{
     console.log('Data getting from the frontend : ',req.body);
     const userIs = new user(req?.body?.data);
