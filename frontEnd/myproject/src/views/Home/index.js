@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import globalStyles from '../../assets/styles/global.module.css'
 import styles from'./home.module.css'
 import {BsSearch} from 'react-icons/bs'
@@ -14,7 +14,7 @@ const Home = () => {
     };
     const handleDispatch =(updateImageIndex)=>{
        dispatch(addPicture(updateImageIndex));
-    }  
+    }
   return (
     <Main>
      <div className='d-flex flex-column flex-wrap mt-5'>
