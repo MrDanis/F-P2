@@ -8,3 +8,13 @@
 .iconsColor{
     color: white !important;;
 }
+.hoverParent{
+    transition:.5;
+}
+.hoverMe{
+    visibility:'hidden';
+    transition: .5s;
+}
+.hoverParent:hover .hoverMe{
+    visibility: visible;
+}

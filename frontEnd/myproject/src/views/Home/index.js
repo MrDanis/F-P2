@@ -5,6 +5,7 @@ import {BsSearch} from 'react-icons/bs'
 import Main from '../../layout/main'
 import { useSelector,useDispatch } from 'react-redux'
 import { addPicture } from '../../features/ImageSlice'
+import {AiFillHeart} from 'react-icons/ai'
 const Home = () => {
     const [columnRange,setcolumnRange] = useState(1);
     const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Home = () => {
     const handleDispatch =(updateImageIndex)=>{
        dispatch(addPicture(updateImageIndex));
     }
+    const[visible,setvisible] = useState('hidden');
   return (
     <Main>
      <div className='d-flex flex-column flex-wrap mt-5'>
@@ -72,17 +74,37 @@ const Home = () => {
                     columnRange<5?
                       <div key={item.imgurl} className={`col-${12/columnRange} p-2`}>
                          {/* /Card Box START*/}
-                         <div onClick={()=>{handleDispatch(index)}} className='d-flex border border-0 border-success' style={{borderRadius:'10px',height:'350px'}}>
+                         <div   onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
+                         <div   className={`position-absolute start-0 left-0 border border-0 border-danger w-100 h-100 bg-dark ${styles.hoverMe}`} style={{opacity:.5,borderRadius:'10px'}}>
+                          <div className='d-flex flex-column justify-content-between h-100 border border-0 border-danger' style={{borderRadius:'10px'}}>
+                           <button className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
+                            <AiFillHeart style={{color:'white'}}/>
+                           </button>
+                           <p className='text-light fs-bold px-2 text-wrap'>
+                            {item?.imgDisc}
+                           </p>
+                          </div>
+
+                          </div>
                            <img className='img-fluid m-0 p-0 w-100' src={item?.imgurl} style={{objectFit:'fill',borderRadius:'10px'}}/>       
                          </div>
                          {/* /Card Box END*/}
                       </div>:
                       <div className='p-2' style={{width:`${100/columnRange}%`}} >
-                      {/* /Card Box START*/}
-                      <div className='d-flex border border-0 border-success' style={{borderRadius:'10px',height:'350px'}}>
-                      <img className='img-fluid m-0 p-0 w-100' src={item?.imgurl} style={{objectFit:'fill',borderRadius:'10px'}}/>       
-                      </div>
-                      {/* /Card Box END*/}
+                     <div   onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
+                         <div   className={`position-absolute start-0 left-0 border border-0 border-danger w-100 h-100 bg-dark ${styles.hoverMe}`} style={{opacity:.5,borderRadius:'10px'}}>
+                          <div className='d-flex flex-column justify-content-between h-100 border border-0 border-danger' style={{borderRadius:'10px'}}>
+                           <button className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
+                            <AiFillHeart style={{color:'white'}}/>
+                           </button>
+                           <p className='text-light fs-bold px-2 text-wrap'>
+                            {item?.imgDisc}
+                           </p>
+                          </div>
+
+                          </div>
+                           <img className='img-fluid m-0 p-0 w-100' src={item?.imgurl} style={{objectFit:'fill',borderRadius:'10px'}}/>
+                         </div>
                    </div>
                   }
                   </>
