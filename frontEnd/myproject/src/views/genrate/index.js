@@ -6,48 +6,6 @@ const Gernrate = () => {
       <Main>
     <div className='container-fluid m-0 p-0'>
 
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
-        <h1 className='text-danger text-center'>
-            home
-        </h1>
     </div>
       </Main>
   )
