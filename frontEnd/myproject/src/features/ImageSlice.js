@@ -11,7 +11,10 @@ export const ImageSlice = createSlice({
     reducers:{
         addPicture:(state,action)=>{
             console.log('append in picture is called ,',action?.payload);
-            state.activeIndex=action?.payload;
+            const newImageData = {...action.payload};
+            console.log('new image data',newImageData);
+            state.imagesData.push(newImageData);
+
         }
     }
 })
