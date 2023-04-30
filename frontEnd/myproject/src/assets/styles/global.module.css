@@ -1,0 +1,20 @@
+:root{
+    --bgColor:rgb(57 51 165);
+}
+.themeButtons,.searchButtons{
+    background-color: var(--bgColor);
+    border-radius: 10px;
+}
+.searchButtons,.genrateButton{
+    border-radius:50px;
+    color: white;
+    transition: .5s all;
+}
+.genrateButton{
+    border: 1px solid silver;
+}
+.genrateButton:hover{
+    border: 1px solid silver;
+    color:white;
+    background-color: rgb(58, 56, 56);
+}
