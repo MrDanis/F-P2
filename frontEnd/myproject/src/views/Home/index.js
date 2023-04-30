@@ -1,49 +1,20 @@
 import React,{useState} from 'react'
-import Header from '../../Components/header'
 import globalStyles from '../../assets/styles/global.module.css'
 import styles from'./home.module.css'
 import {BsSearch} from 'react-icons/bs'
-import c1 from '../../assets/images/bot.jpg'
-import c2 from '../../assets/images/fox.jpg'
-import c3 from '../../assets/images/game.jpg'
-import c4 from '../../assets/images/home.jpg'
-import c5 from '../../assets/images/rabbit.jpg'
-import c6 from '../../assets/images/Stchu.jpg'
 import Main from '../../layout/main'
+import { useSelector,useDispatch } from 'react-redux'
+import { addPicture } from '../../features/ImageSlice'
 const Home = () => {
-     const data = [
-      {imgurl:c1},
-      {imgurl:c2},
-      {imgurl:c3},
-      {imgurl:c4},
-      {imgurl:c5},
-      {imgurl:c6},
-      {imgurl:c1},
-      {imgurl:c2},
-      {imgurl:c3},
-      {imgurl:c4},
-      {imgurl:c5},
-      {imgurl:c6},
-      {imgurl:c4},
-      {imgurl:c5},
-      {imgurl:c6},
-      {imgurl:c1},
-      {imgurl:c2},
-      {imgurl:c3},
-      {imgurl:c6},
-      {imgurl:c1},
-      {imgurl:c2},
-      {imgurl:c3},
-      {imgurl:c4},
-      {imgurl:c5},
-      {imgurl:c6},
-      {imgurl:c4},
-      {imgurl:c5}      
-     ] 
-    const [columnRange,setcolumnRange] = useState(1)
+    const [columnRange,setcolumnRange] = useState(1);
+    const dispatch = useDispatch();
+    const {imagesData} = useSelector((state)=> state?.ImageReducer);
     const handleChange = (event) => {
         setcolumnRange(event.target.value);
-      };
+    };
+    const handleDispatch =(updateImageIndex)=>{
+       dispatch(addPicture(updateImageIndex));
+    }  
   return (
     <Main>
      <div className='d-flex flex-column flex-wrap mt-5'>
@@ -95,13 +66,13 @@ const Home = () => {
         <div className='container-fluid m-0 px-3 p-0 border border-0 border-success'>
           <div className='row m-0 pt-4 p-0'>
              {
-                data.map((item)=>{return(
+               imagesData?.map((item,index)=>{return(
                   <>
                   {
                     columnRange<5?
                       <div key={item.imgurl} className={`col-${12/columnRange} p-2`}>
                          {/* /Card Box START*/}
-                         <div className='d-flex border border-0 border-success' style={{borderRadius:'10px',height:'350px'}}>
+                         <div onClick={()=>{handleDispatch(index)}} className='d-flex border border-0 border-success' style={{borderRadius:'10px',height:'350px'}}>
                            <img className='img-fluid m-0 p-0 w-100' src={item?.imgurl} style={{objectFit:'fill',borderRadius:'10px'}}/>       
                          </div>
                          {/* /Card Box END*/}
