@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { addPictureTwo,handleLiked } from '../../features/ImageSlice'
 import {AiFillHeart} from 'react-icons/ai'
 const Home = () => {
-    const [columnRange,setcolumnRange] = useState(1);
+    const [columnRange,setcolumnRange] = useState(4);
     const dispatch = useDispatch();
     const {imagesData} = useSelector((state)=> state?.ImageReducer);
     const handleChange = (event) => {
