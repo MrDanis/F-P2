@@ -83,9 +83,20 @@ const LeftPanel = () => {
                         ))
                     }
                 </div>
-                <div className='d-flex flex-column'>
+                <div className='d-flex flex-column mb-2'>
                    <p className='text-success m-0 p-0'>Propmt</p>            
                    <small className='text-white text-justify text-wrap'>{activeIndex?.imgDisc} </small>
+                </div>
+                <div className='d-flex flex-column mb-2'>
+                   <p className='text-white m-0 mb-2 p-0'>Settings</p>
+                    <p className='text-white my-1 '>Modal</p>            
+                   <small className='text-muted text-justify text-wrap py-2'>{activeIndex?.modal} </small>
+                    <p className='text-white my-1'>Guidance scale</p>            
+                   <small className='text-muted text-justify text-wrap'>{activeIndex?.scale} </small>
+                    <p className='text-white my-1'>Dimensions</p>            
+                   <small className='text-muted text-justify text-wrap'>{activeIndex?.dimension} </small>
+                    <p className='text-white my-1'>Upscaled</p>            
+                   <small className='text-muted text-justify text-wrap'>{activeIndex?.upScaled} </small>
                 </div>
             </div>
         </div>
