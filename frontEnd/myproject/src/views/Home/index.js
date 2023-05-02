@@ -74,8 +74,8 @@ const Home = () => {
                     columnRange<5?
                       <div key={item.imgurl} className={`col-${12/columnRange} p-2`}>
                          {/* /Card Box START*/}
-                         <div   onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
-                         <div   className={`position-absolute start-0 left-0 border border-0 border-danger w-100 h-100 bg-dark ${styles.hoverMe}`} style={{opacity:.5,borderRadius:'10px'}}>
+                         <div onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
+                         <div className={`position-absolute start-0 left-0 border border-0 border-danger w-100 h-100 bg-dark ${styles.hoverMe}`} style={{opacity:.5,borderRadius:'10px'}}>
                           <div className='d-flex flex-column justify-content-between h-100 border border-0 border-danger' style={{borderRadius:'10px'}}>
                            <button className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
                             <AiFillHeart style={{color:'white'}}/>
