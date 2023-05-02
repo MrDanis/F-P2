@@ -1,7 +1,7 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useRef, useState,Fragment} from 'react';
 import "./LeftPanel.css"
 import {addPicture} from "../../features/ImageSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch,useSelector} from "react-redux";
 const allowedTypes = [
     'image/png',
     'image/jpeg',
@@ -9,6 +9,7 @@ const allowedTypes = [
 
 const LeftPanel = () => {
     // let {setCurrentAction} = useContext(CanvasStore);
+    const {activeIndex} = useSelector((state)=> state?.ImageReducer)
     const [imageCollection, setImageCollection] = useState([])
     const inputRef = useRef(null)
     const dispatch = useDispatch();
@@ -49,6 +50,9 @@ const LeftPanel = () => {
     };
 
     return (
+        <Fragment>
+
+        
         <div className="left-panel">
             <div className="gallery-wrapper">
                 <button className='primary-btn' onClick={uploadFile}>Upload</button>
@@ -79,8 +83,13 @@ const LeftPanel = () => {
                         ))
                     }
                 </div>
+                <div className='d-flex flex-column'>
+                   <p className='text-success m-0 p-0'>Propmt</p>            
+                   <small className='text-white text-justify text-wrap'>{activeIndex?.imgDisc} </small>
+                </div>
             </div>
         </div>
+    </Fragment>
     );
 }
 export default LeftPanel;

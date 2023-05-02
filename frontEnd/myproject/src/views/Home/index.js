@@ -4,7 +4,7 @@ import styles from'./home.module.css'
 import {BsSearch} from 'react-icons/bs'
 import Main from '../../layout/main'
 import { useSelector,useDispatch } from 'react-redux'
-import { addPicture } from '../../features/ImageSlice'
+import { addPictureTwo,handleLiked } from '../../features/ImageSlice'
 import {AiFillHeart} from 'react-icons/ai'
 const Home = () => {
     const [columnRange,setcolumnRange] = useState(1);
@@ -14,9 +14,8 @@ const Home = () => {
         setcolumnRange(event.target.value);
     };
     const handleDispatch =(updateImageIndex)=>{
-       dispatch(addPicture(updateImageIndex));
+       dispatch(addPictureTwo({index:updateImageIndex}));
     }
-    const[visible,setvisible] = useState('hidden');
   return (
     <Main>
      <div className='d-flex flex-column flex-wrap mt-5'>
@@ -77,8 +76,12 @@ const Home = () => {
                          <div onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
                          <div className={`position-absolute start-0 left-0 border border-0 border-danger w-100 h-100 bg-dark ${styles.hoverMe}`} style={{opacity:.5,borderRadius:'10px'}}>
                           <div className='d-flex flex-column justify-content-between h-100 border border-0 border-danger' style={{borderRadius:'10px'}}>
-                           <button className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
-                            <AiFillHeart style={{color:'white'}}/>
+                           <button onClick={()=>{dispatch(handleLiked({indexAt:index}))}} className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
+                            {
+                              item?.isLike?
+                              <AiFillHeart style={{color:'red'}}/>:
+                              <AiFillHeart style={{color:'white'}}/>
+                            }
                            </button>
                            <p className='text-light fs-bold px-2 text-wrap'>
                             {item?.imgDisc}
@@ -91,10 +94,10 @@ const Home = () => {
                          {/* /Card Box END*/}
                       </div>:
                       <div className='p-2' style={{width:`${100/columnRange}%`}} >
-                     <div   onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
+                     <div onClick={()=>{handleDispatch(index)}} className={`d-flex position-relative border border-0 border-success ${styles.hoverParent}`} style={{borderRadius:'10px',height:'350px'}}>
                          <div   className={`position-absolute start-0 left-0 border border-0 border-danger w-100 h-100 bg-dark ${styles.hoverMe}`} style={{opacity:.5,borderRadius:'10px'}}>
                           <div className='d-flex flex-column justify-content-between h-100 border border-0 border-danger' style={{borderRadius:'10px'}}>
-                           <button className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
+                           <button onClick={()=>{dispatch(handleLiked({indexAt:index}))}} className='d-flex align-items-center justify-content-center mx-2 mt-2 text-light align-self-end border-1 outline-none bg-dark rounded-circle shadow' style={{height:'25px'}}>
                             <AiFillHeart style={{color:'white'}}/>
                            </button>
                            <p className='text-light fs-bold px-2 text-wrap'>

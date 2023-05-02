@@ -12,9 +12,10 @@
     transition:.5;
 }
 .hoverMe{
-    visibility:'hidden';
+    display:none;
     transition: .5s;
 }
 .hoverParent:hover .hoverMe{
-    visibility: visible;
+    display: block;
+    transition: .7s;
 }

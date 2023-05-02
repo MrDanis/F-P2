@@ -12,8 +12,22 @@ export const ImageSlice = createSlice({
         addPicture:(state,action)=>{
             const newImageData = {...action.payload};
             state.imagesData.push(newImageData);
+        },
+        addPictureTwo:(state,action)=>{
+            console.log(action?.payload?.index)
+            state.activeIndex=state.imagesData[action?.payload?.index];
+        }
+        ,
+        handleLiked:(state,action)=>{
+            if(state?.imagesData[action?.payload?.indexAt]?.isLike){
+                state.imagesData[action?.payload?.indexAt].isLike=false;
+            }
+            else{
+                state.imagesData[action?.payload?.indexAt].isLike=true;
+            }
+           console.log('Payload for the Like is : ',action.payload)
         }
     }
 })
-export const {addPicture} = ImageSlice.actions
+export const {addPicture,addPictureTwo,handleLiked} = ImageSlice.actions
 export default ImageSlice.reducer
