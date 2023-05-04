@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{Fragment} from 'react'
+import { useSelector } from 'react-redux'
 import {BrowserRouter as Router ,Routes, Route} from 'react-router-dom'
 import Gernrate from '../views/genrate'
 import Home from '../views/Home'
 const AppRoutes = () => {
+    const {themeMode} = useSelector((state)=> state?.ImageReducer);
     const routes = [
         {
             path:'/',
@@ -14,19 +16,23 @@ const AppRoutes = () => {
         }
     ]
   return (
-    <Router>
-       <Routes>
-           {
-               routes.map(({path,Component})=>(
-                   <Route
-                     key={path}
-                     path={path}
-                     element={<Component/>}
-                   ></Route>
-               ))
-           }
-       </Routes>
-    </Router>
+    <Fragment>
+       <div className='conatiner-fluid m-0 p-0' style={{backgroundColor:themeMode==='dark'?'#27272a':'white'}}>
+        <Router>
+         <Routes>
+             {
+                 routes.map(({path,Component})=>(
+                     <Route
+                       key={path}
+                       path={path}
+                       element={<Component/>}
+                       ></Route>
+                       ))
+                    }
+         </Routes>
+      </Router>
+     </div> 
+    </Fragment>
   )
 }
 

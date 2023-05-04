@@ -1,13 +1,20 @@
 import React,{useState} from 'react'
 import Main from "../../layout/main";
+import { useSelector } from 'react-redux';
 import style from '../../assets/styles/global.module.css'
+import styles from '../Home/home.module.css'
 import {BsPlus} from 'react-icons/bs'
 import {AiOutlineBars} from 'react-icons/ai'
 import {MdOutlineArrowDropDown} from 'react-icons/md'
 const Gernrate = () => {
+  const {themeMode} = useSelector((state)=> state?.ImageReducer);
   const [columnRange,setcolumnRange] = useState(1);
+  const [columnRange2,setcolumnRange2] = useState(1);
   const handleChange = (event) => {
     setcolumnRange(event.target.value);
+  };
+  const handleChange2 = (event) => {
+    setcolumnRange2(event.target.value);
   };
   return (
   <Main>
@@ -18,18 +25,18 @@ const Gernrate = () => {
               <label className='text-muted fs-6 mb-2'>
                  Describe your image
               </label>
-              <textarea className='mb-3 p-2 bg-dark border-1 outline-none' placeholder='A steampunk teddy bear vending machine' style={{height:'100px',borderRadius:'15px'}}></textarea>
+              <textarea className={`mb-3 p-2 bg-${themeMode} border-1 outline-none`} placeholder='A steampunk teddy bear vending machine' style={{height:'100px',borderRadius:'15px'}}></textarea>
               <label className='text-muted fs-6 mb-2'>
                  Nevigate prompt
               </label>
-              <textarea className='border-1 p-2 outline-none bg-dark' placeholder='text,blurry' style={{borderRadius:'15px'}}></textarea>
+              <textarea className={`border-1 p-2 outline-none bg-${themeMode}`} placeholder='text,blurry' style={{borderRadius:'15px'}}></textarea>
               <button className={`mt-3 ms-auto border-0 m-0 pt-1 p-2 d-flex alirgn-items-center justify-content-center shadow ${style.searchButtons}`} style={{width:'15%'}}>genrate</button>
             </div>
           </div>
           <div className='col-12 border border-0 col-sm-5 col-md-4 col-lg-3 mt-2 m-0 px-3 p-2'>
           <div className='d-flex flex-column flex-wrap mt-4 m-0 p-0 border-gray'style={{border:'1px solid #939395',borderRadius:'10px'}}>
             {/* uploadimage button */}
-            <button className={`p-1 align-self-end outline-none w-50 d-flex align-items-center flex-wrap bg-dark border-1 border-dark shadow ${style.uploadImage}`}><BsPlus style={{color:'#939395'}}/> <small className='mx-1 text-muted' style={{fontSize:'.5rem'}}>Upload Image</small></button>
+            <button className={`p-1 align-self-end outline-none w-50 d-flex align-items-center flex-wrap bg-${themeMode} border-0 border-${themeMode} shadow ${style.uploadImage}`}><BsPlus style={{color:'#939395'}}/> <small className='mx-1 text-muted' style={{fontSize:'.5rem'}}>Upload Image</small></button>
             {/* dimensions */}
             <div className='d-flex flex-wrap m-0 px-2 py-2 p-0'>
               <input
@@ -39,7 +46,7 @@ const Gernrate = () => {
                max="12"
                value={columnRange}
                onChange={handleChange}
-               className='w-100'/>
+               className={`w-100 ${themeMode==='dark'?'':styles.rangeSliderLight} rounded`}/>
             </div>
             {/* img size value */}
             <div className='d-flex flex-wrap align-items-center justify-content-evenly m-0 p-0'>
@@ -49,7 +56,7 @@ const Gernrate = () => {
             </div>
             {/* advance settings */}
             <div>
-              <button className="mt-2 btn d-flex align-items-center outline-none shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <button className="ms-2 mt-2 btn d-flex align-items-center outline-none shadow-none border" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                <MdOutlineArrowDropDown style={{color:'#939395'}}/>
                <small className='text-muted'>Advanced settings</small>
               </button>
@@ -60,12 +67,12 @@ const Gernrate = () => {
                        <small className='text-muted mx-2'>Modal Type</small>
                     </div>
                     <div className="d-flex flex-wrap w-75 my-2 btn-group border border-0 border-danger">
-                      <button type="button" className="w-100 btn btn-dark dropdown-toggle outline-none sahdow-none p-1 text-start" data-bs-toggle="dropdown" aria-expanded="false">
+                      <button type="button" className={`w-100 btn btn-${themeMode} dropdown-toggle outline-none sahdow p-1 text-start`} data-bs-toggle="dropdown" aria-expanded="false">
                       <small className='text-wrap'>Lexica Aperture v3</small>  
                       </button>
-                      <ul class="dropdown-menu bg-dark w-50">
+                      <ul className={`dropdown-menu bg-${themeMode==='dark'?'dark':'light'} w-50`}>
                         <li className='text-center'>
-                          <a className=" m-0 p-0 text-light dropdown-item" href="#">
+                          <a className={`m-0 p-0 text-${themeMode==='dark'?'light':'dark'} dropdown-item`} href="#">
                             <small className='fs-6'>
                              Lexica Aperture v2
                             </small>
@@ -81,7 +88,7 @@ const Gernrate = () => {
                           </p>  
                          </div>
                          <div className='d-flex flex-wrap align-items-center w-25'>
-                            <small className='ms-auto text-white'>7</small>   
+                            <small className={`ms-auto text-${themeMode==='dark'?'light':'dark'}`}>7</small>   
                          </div>
                          <div className='d-flex flex-wrap m-0 px-2 py-2 p-0 w-100'>
                                 <input
@@ -89,9 +96,9 @@ const Gernrate = () => {
                                  type="range"
                                  min="1"
                                  max="12"
-                                 value={columnRange}
-                                 onChange={handleChange}
-                                 className='w-100'/>
+                                 value={columnRange2}
+                                 onChange={handleChange2}
+                                 className={`w-100 ${themeMode==='dark'?'':styles.rangeSliderLight} rounded`}/>
                               </div>
                     </div>
                  </div>

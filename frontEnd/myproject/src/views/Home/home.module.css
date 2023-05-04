@@ -1,12 +1,19 @@
 .leadText{
     font-size: 62px;
 }
-.searchInput{
+.searchInputDark,.searchInputLight{
     background-color: #3F3F46;
     border-radius: 50px;
 }
-.iconsColor{
+.searchInputLight{
+    background-color:white;
+    border:1px solid grey;
+}
+.iconsColorLight{
     color: white !important;;
+}
+.iconsColorDark{
+    color: black !important;;
 }
 .hoverParent{
     transition:.5;
@@ -18,4 +25,12 @@
 .hoverParent:hover .hoverMe{
     display: block;
     transition: .7s;
+}
+.rangeSliderLight::-webkit-slider-runnable-track{
+    background: rgb(57 51 165);
+    border-radius: 50px;
+    
+}
+.rangeSliderLight::-webkit-slider-thumb{
+    background: linear-gradient(to bottom, red, yellow);
 }
