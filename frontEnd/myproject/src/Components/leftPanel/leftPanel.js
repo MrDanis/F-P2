@@ -11,6 +11,7 @@ const LeftPanel = () => {
     // let {setCurrentAction} = useContext(CanvasStore);
     const {activeIndex} = useSelector((state)=> state?.ImageReducer)
     const [imageCollection, setImageCollection] = useState([])
+    const [promptText, setPromptText] = useState('')
     const inputRef = useRef(null)
     const dispatch = useDispatch();
     let imageArray = []
@@ -48,6 +49,9 @@ const LeftPanel = () => {
     const uploadFile = () => {
         inputRef.current.click();
     };
+    const onChaneText = (e) => {
+        setPromptText(e.target.value)
+    };
 
     return (
         <Fragment>
@@ -55,6 +59,10 @@ const LeftPanel = () => {
         
         <div className="left-panel">
             <div className="gallery-wrapper">
+                <div className='d-flex mb-1'>
+                    <button className='primary-btn generate-btn'>Generate</button>
+                    <button className='primary-btn'>Edit</button>
+                </div>
                 <button className='primary-btn' onClick={uploadFile}>Upload</button>
                 <input
                     ref={inputRef}
@@ -84,8 +92,8 @@ const LeftPanel = () => {
                     }
                 </div>
                 <div className='d-flex flex-column mb-2'>
-                   <p className='text-success m-0 p-0'>Propmt</p>            
-                   <small className='text-white text-justify text-wrap'>{activeIndex?.imgDisc} </small>
+                   <p className='text-success m-0 p-0'>Propmt</p>
+                   <textarea className="form-control" value={promptText} onChange={onChaneText}/>
                 </div>
                 <div className='d-flex flex-column mb-2'>
                    <p className='text-white m-0 mb-2 p-0'>Settings</p>

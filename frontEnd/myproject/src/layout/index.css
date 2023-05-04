@@ -1,8 +1,18 @@
 .home-page{
+    display: flex;
     overflow: hidden;
     max-height: calc(100vh - 72px);
+    margin-top: 3.9rem!important;
 }
-.left-side{
+.right-side{
+    flex: 1 1;
     max-height: calc(100vh - 70px);
     overflow: auto;
+}
+.side-bar{
+    flex: 0 0 300px;
+    padding: 0!important;
+}
+.generate-btn{
+    margin-right: 5px;
 }
