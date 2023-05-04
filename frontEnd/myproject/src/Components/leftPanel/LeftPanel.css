@@ -80,3 +80,34 @@
 .shape-item img:hover{
     background-color: #dedcdc;
 }
+.prompt-icon{
+    opacity: .75;
+    padding: 1px;
+    transform-origin: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    transition-duration: .1s;
+}
+.textarea-setting{
+    color: #ffffff99!important;
+   background-color: #373737 !important;
+    border: none !important;
+}
+.form-control:focus{
+    box-shadow: none!important;
+    color: #ffffff99 !important;
+}
+.textarea-setting::-webkit-scrollbar {
+    width: 8px;
+}
+.textarea-setting::-webkit-scrollbar-track {
+    background: #c1c0c0;
+}
+.textarea-setting::-webkit-scrollbar-thumb {
+    background: #828282;
+}
+.textarea-setting::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
