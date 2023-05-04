@@ -10,7 +10,7 @@ const allowedTypes = [
 
 const LeftPanel = () => {
     // let {setCurrentAction} = useContext(CanvasStore);
-    const {activeIndex} = useSelector((state)=> state?.ImageReducer)
+    const {activeIndex,themeMode} = useSelector((state)=> state?.ImageReducer)
     const [imageCollection, setImageCollection] = useState([])
     const [promptText, setPromptText] = useState('Simon stalenhag poster 1920s style, futuristic, futuristic leather womenswear,')
     const [toggleText, setToggleText] = useState(false)
@@ -61,18 +61,18 @@ const LeftPanel = () => {
     const settingToggle = () => {
         setToggleSetting(!toggleSetting)
     };
-
+   // #1b1b1e
     return (
         <Fragment>
 
         
-        <div className="left-panel">
+        <div className={`left-panel-${themeMode}`}>
             <div className="gallery-wrapper">
-                <div className='d-flex mb-1'>
-                    <button className='primary-btn generate-btn'>Generate</button>
-                    <button className='primary-btn'>Edit</button>
+                <div className='d-flex flex-wrap justify-content-between mb-1 gx-2'>
+                    <button className={`border-0 py-2 rounded btn-${themeMode}  shadow`} style={{width:'49%'}}>Generate</button>
+                    <button className={`border-0 py-2 rounded btn-${themeMode}  shadow`} style={{width:'49%'}}>Edit</button>
                 </div>
-                <button className='primary-btn' onClick={uploadFile}>Upload</button>
+                <button className={`mt-2 border-0 py-2 rounded btn-${themeMode} w-100 shadow`} onClick={uploadFile}>Upload</button>
                 <input
                     ref={inputRef}
                     onChange={newInputHandler}
@@ -102,7 +102,7 @@ const LeftPanel = () => {
                 </div>
                 <div className='d-flex flex-column mb-2'>
                     <div className='d-flex justify-content-between p-2' onClick={toggleTextarea}>
-                        <p className='text-light m-0 p-0'>Prompt</p>
+                        <p className={`text-${themeMode==='dark'?'light':'dark'} m-0 p-0`}>Prompt</p>
                         <PromptBtn/>
                     </div>
                     {toggleText &&
@@ -111,17 +111,17 @@ const LeftPanel = () => {
                 </div>
                 <div className='d-flex flex-column mb-2'>
                     <div className='p-2' onClick={settingToggle}>
-                        <p className='text-white m-0 mb-2 p-0'>Settings</p>
+                        <p className={`text-${themeMode==='dark'?'light':'dark'} m-0 mb-0 p-0`}>Settings</p>
                     </div>
                     {toggleSetting &&
-                        <div className='pl-3 pr-3'>
-                            <p className='text-white my-1 '>Modal</p>
+                        <div className=' ps-2 pl-3 pr-3'>
+                            <p className={`text-${themeMode==='dark'?'light':'dark'} my-4`}>Modal</p>
                             <small className='text-muted text-justify text-wrap py-2'>{activeIndex?.modal} </small>
-                            <p className='text-white my-1'>Guidance scale</p>
+                            <p className={`text-${themeMode==='dark'?'light':'dark'} my-4`}>Guidance scale</p>
                             <small className='text-muted text-justify text-wrap'>{activeIndex?.scale} </small>
-                            <p className='text-white my-1'>Dimensions</p>
+                            <p className={`text-${themeMode==='dark'?'light':'dark'} my-4`}>Dimensions</p>
                             <small className='text-muted text-justify text-wrap'>{activeIndex?.dimension} </small>
-                            <p className='text-white my-1'>Upscaled</p>
+                            <p className={`text-${themeMode==='dark'?'light':'dark'} my-4`}>Upscaled</p>
                             <small className='text-muted text-justify text-wrap'>{activeIndex?.upScaled} </small>
                         </div>
                     }
