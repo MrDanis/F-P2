@@ -34,3 +34,11 @@
 .rangeSliderLight::-webkit-slider-thumb{
     background: linear-gradient(to bottom, red, yellow);
 }
+.customInputStyle:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+.selectModal:hover,.selectModal:focus{
+    background-color: transparent;
+}

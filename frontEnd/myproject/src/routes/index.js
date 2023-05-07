@@ -17,7 +17,7 @@ const AppRoutes = () => {
     ]
   return (
     <Fragment>
-       <div className='conatiner-fluid m-0 p-0' style={{backgroundColor:themeMode==='dark'?'#27272a':'white'}}>
+       <div className='conatiner-fluid m-0 p-0' style={{backgroundColor:themeMode==='dark'?'#27272a':'#e9ecef'}}>
         <Router>
          <Routes>
              {

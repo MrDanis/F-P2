@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 import './heder.css'
 import styles from '../../assets/styles/global.module.css'
 import {useLocation,Link} from 'react-router-dom'
@@ -6,7 +6,7 @@ import {MdNightlightRound} from 'react-icons/md'
 import {WiDaySunny} from 'react-icons/wi'
 import { changeTheme } from '../../features/ImageSlice'
 import { useSelector,useDispatch } from 'react-redux'
-const Header = () => {
+const Header = ({children}) => {
     const {themeMode} = useSelector((state)=> state?.ImageReducer);
     const dispatch = useDispatch();
     const location = useLocation();
@@ -20,7 +20,8 @@ const Header = () => {
         }
     }
     return (
-        <div className={`test-center fixed-top text-success container-fluid m-0 p-0 headerMainBox-${themeMode}`}>
+       <Fragment>
+        <div className={`test-center fixed-top text-success container-fluid m-0 p-0 shadow headerMainBox-${themeMode}`}>
             <nav className="navbar px-3 p-0 navbar-expand-lg navbar-dark bg-transparent">
                 <div className="container-fluid p-0 m-0">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +61,8 @@ const Header = () => {
                 </div>
             </nav>
         </div>
+        {children}
+    </Fragment>
     )
 }
 

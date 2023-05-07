@@ -5,18 +5,26 @@
     background-color: var(--bgColor);
     border-radius: 10px;
 }
-.searchButtons,.genrateButton{
+.searchButtons,.genrateButton,.genrateButtonLight{
     border-radius:50px;
     color: white;
     transition: .5s all;
 }
-.genrateButton{
+.genrateButton,.genrateButtonLight{
     border: 1px solid silver;
+}
+.genrateButtonLight{
+    color:black;
 }
 .genrateButton:hover{
     border: 1px solid silver;
     color:white;
     background-color: rgb(58, 56, 56);
+}
+.genrateButtonLight:hover{
+    border: 1px solid silver;
+    color:black;
+    background-color: rgb(246, 239, 239);
 }
 .uploadImage{
     border-top-right-radius: 10px;

@@ -35,8 +35,14 @@ export const ImageSlice = createSlice({
          else{
             state.themeMode='dark'
          }
+        },
+        updatePrompt:(state,action)=>{
+            // get the index of the updated object
+            const objectIndex = state.imagesData.findIndex((item)=> item.modal===action?.payload?.modalName) 
+            // update the array
+            state.imagesData[objectIndex].imgDisc = action?.payload?.disc; // [...state.imagesData.slice(0,objectIndex),{...state.imagesData[objectIndex],imgDisc:action?.payload?.disc}]
         }
     }
 })
-export const {addPicture,addPictureTwo,handleLiked,changeTheme} = ImageSlice.actions
+export const {addPicture,addPictureTwo,handleLiked,changeTheme,updatePrompt} = ImageSlice.actions
 export default ImageSlice.reducer
