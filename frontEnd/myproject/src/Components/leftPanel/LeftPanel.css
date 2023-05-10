@@ -1,10 +1,10 @@
 .left-panel-dark,.left-panel-light{
-    width:15%;
+    flex: 0 0 300px;
     display: flex;
     justify-content: start;
     flex-direction: column;
     padding: 5px;
-    padding-top:5%;
+    padding-top:1%;
     min-height: 100vh;
     height: fit-content;
     background-color: #1b1b1e;

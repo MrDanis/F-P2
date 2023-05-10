@@ -21,7 +21,7 @@ const Header = ({children}) => {
     }
     return (
        <Fragment>
-        <div className={`test-center fixed-top text-success container-fluid m-0 p-0 shadow headerMainBox-${themeMode}`}>
+        <div className={`test-center text-success container-fluid m-0 p-0 shadow headerMainBox-${themeMode}`}>
             <nav className="navbar px-3 p-0 navbar-expand-lg navbar-dark bg-transparent">
                 <div className="container-fluid p-0 m-0">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">

@@ -71,7 +71,7 @@ const LeftPanel = ({ children }) => {
     },[activeIndex])
     return (
         <Fragment>
-            <div className='d-flex m-0 pt-2 p-0'>
+            <div className='d-flex m-0 pt-1 p-0'>
                 <div className={`px-2 left-panel-${themeMode}`}>
                     <div className="gallery-wrapper">
                         <div className='d-flex  flex-wrap justify-content-between mb-1 gx-2'>

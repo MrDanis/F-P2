@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addPictureTwo, handleLiked } from '../../features/ImageSlice'
 import { changeTheme } from '../../features/ImageSlice'
 import { AiFillHeart } from 'react-icons/ai'
+
 const Home = () => {
   const { imagesData, themeMode } = useSelector((state) => state?.ImageReducer);
   const [columnRange, setcolumnRange] = useState(6);
@@ -19,7 +20,7 @@ const Home = () => {
   }
   return (
     <Main>
-      <div className='d-flex flex-column' style={{ width: '85%' }}>
+      <div className={`d-flex flex-column ${styles.rightSide}`}>
         <div className='d-flex flex-column mt-5 pt-5 flex-wrap mt-5'>
           <h1 className={`text-${themeMode === 'dark' ? 'light' : 'dark'} text-center ${styles.leadText}`}>
             Lexica
@@ -70,7 +71,7 @@ const Home = () => {
           </div>
         </div>
         {/* Picture container start */}
-        <div className='container-fluid m-0 px-3 p-0 border border-0 border-success'>
+        <div className={`container-fluid m-0 px-3 p-0 border border-0 border-success`}>
           <div className='row m-0 pt-4 p-0'>
             {
               imagesData?.map((item, index) => {

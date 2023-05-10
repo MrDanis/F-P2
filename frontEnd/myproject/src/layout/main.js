@@ -4,7 +4,7 @@ import LeftPanel from "../Components/leftPanel/leftPanel";
 import './index.css'
 const Main = ({children}) => {
   return (
-    <div className='container-fluid m-0 p-0'>
+    <div className='container-fluid m-0 p-0 home-page'>
       <Header>
            <LeftPanel>
               {children}

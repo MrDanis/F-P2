@@ -1,6 +1,15 @@
 .leadText{
     font-size: 62px;
 }
+.rightSide{
+    flex: 1 1;
+    max-height: calc(100vh - 70px);
+    overflow: auto;
+}
+
+.generate-btn{
+    margin-right: 5px;
+}
 .searchInputDark,.searchInputLight{
     background-color: #3F3F46;
     border-radius: 50px;
