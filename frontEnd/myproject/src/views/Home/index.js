@@ -9,7 +9,7 @@ import { changeTheme } from '../../features/ImageSlice'
 import { AiFillHeart } from 'react-icons/ai'
 const Home = () => {
   const { imagesData, themeMode } = useSelector((state) => state?.ImageReducer);
-  const [columnRange, setcolumnRange] = useState(1);
+  const [columnRange, setcolumnRange] = useState(6);
   const dispatch = useDispatch();
   const handleChange = (event) => {
     setcolumnRange(event.target.value);

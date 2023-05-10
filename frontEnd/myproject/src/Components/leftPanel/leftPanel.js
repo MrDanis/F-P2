@@ -50,6 +50,7 @@ const LeftPanel = ({ children }) => {
     };
     const onChaneText = (e) => {
         setPromptText(e.target.value)
+        dispatch(updatePrompt({modalName:activeIndex?.modal,disc:e.target.value}))
     };
     const toggleTextarea = () => {
         setToggleText(!toggleText)
@@ -116,7 +117,6 @@ const LeftPanel = ({ children }) => {
                             {toggleText &&
                                 <textarea className={`border border-1 border-${themeMode === 'dark' ? 'dark' : 'light'} px-2 p-1 bg-transparent shadow ImagePrompt text-${themeMode === 'dark' ? 'light' : 'dark'}`} style={{ fontSize: '.75rem', borderRadius: '.3rem' }} defaultValue={activeIndex?.imgDisc} value={promptText} onChange={onChaneText} />
                             }
-                            <button className={`mt-3 border border-1 border-${themeMode==='dark'?'dark':''} btn btn-${themeMode} p-1`}  style={{fontSize:'.75rem'}} onClick={()=>{dispatch(updatePrompt({modalName:activeIndex?.modal,disc:promptText}))}}>Update</button>
                         </div>
                         <div className='d-flex flex-column mb-2'>
                             <div className='p-2' onClick={settingToggle}>
