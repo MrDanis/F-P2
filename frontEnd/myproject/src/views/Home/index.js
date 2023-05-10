@@ -97,7 +97,7 @@ const Home = () => {
                               </div>
 
                             </div>
-                            <img className='img-fluid m-0 p-0 w-100' src={item?.imgurl} style={{ objectFit: 'fill', borderRadius: '10px' }} />
+                            <img className='img-fluid m-0 p-0 w-100' src={item?.imgurl} style={{ objectFit: 'cover', borderRadius: '10px' }} />
                           </div>
                           {/* /Card Box END*/}
                         </div> :
